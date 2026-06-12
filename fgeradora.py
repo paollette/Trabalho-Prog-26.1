@@ -47,7 +47,7 @@ def gerar_arquivo_dados(nome_arquivo, qtd_linhas):
     return tempo_total
 
        
-print("DEBUG")                            # resultados do meu PC: ("\" pra Windows, "/" pra Linux)
+print("DEBUG")                                    # resultados do meu PC: ("\" pra Windows, "/" pra Linux)
 gerar_arquivo_dados("data\pequeno.csv", 100)      # 100 pacientes (0.0008 segundos)
 gerar_arquivo_dados("data\medio.csv", 10000)      # 10 mil pacientes (0.0488 segundos)
 gerar_arquivo_dados("data\grande.csv", 100000)    # 100 mil pacientes (0.4699 segundos)
