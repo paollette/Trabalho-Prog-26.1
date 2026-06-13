@@ -8,7 +8,7 @@ NOMES = ['Luna', 'Thor','Mel', 'Paçoca', 'Pipoca', 'Bento', 'Amora', 'Simba', '
 
 ESPECIES = ['Cachorro', 'Gato', 'Coelho', 'Hamster', 'Porquinho-da-india', 'Calopsita', 'Peixe-dourado', 'Tartaruga']
 
-PROCEDIMENTOS = ['Consulta_rotina', 'Vacinação', 'Castração', 'Limpeza_tártaro', 'Hemograma', 'Ultrassonografia', 'Curativo_ferida']
+HISTORICOS = ['Consulta_rotina', 'Vacinação', 'Castração', 'Limpeza_tártaro', 'Hemograma', 'Ultrassonografia', 'Curativo_ferida']
 
 
 def gerar_pets(identidade):
@@ -19,11 +19,11 @@ def gerar_pets(identidade):
     peso = round(random.uniform(0.5, 40.0), 2) # round(número a ser arredondado, casas decimais) - uniform(ínicio, fim) gera um float dentro de um intervalo.
     cadastro = random.choice([True, False])
 
-    procedimentos_qtd = random.randint(1, 3)
-    procedimentos_lista = random.sample(PROCEDIMENTOS, procedimentos_qtd) # sample() é o mesmo que choice, mas ao invés de um elemento único, n elementos únicos dentro da lista.
-    procedimentos_formatado = ";".join(procedimentos_lista) # listas naturalmente são separadas por "," que gera problema no CSV que identifica como coluna.
+    historico_qtd = random.randint(1, 3)
+    historico_lista = random.sample(HISTORICOS, historico_qtd) # sample() é o mesmo que choice, mas ao invés de um elemento único, n elementos únicos dentro da lista.
+    historico = ";".join(historico_lista) # listas naturalmente são separadas por "," que gera problema no CSV que identifica como coluna.
 
-    return f"{identidade},{nome},{especie},{idade},{peso},{cadastro},{procedimentos_formatado}\n"
+    return f"{identidade},{nome},{especie},{idade},{peso},{cadastro},{historico}\n"
 
 
 def gerar_arquivo_dados(nome_arquivo, qtd_linhas):
