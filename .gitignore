@@ -1,2 +1,3 @@
 data/*
 !data/
+veterinaria/__pycache__/*
