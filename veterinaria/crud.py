@@ -52,7 +52,7 @@ def buscar_animais(pacientes, id_procurado): # Dar uma olhada se os nomes das va
     print("Animal não encontrado!")
 
 
-def salvar_animais(nome_arquivo, pacientes):
+def salvar(nome_arquivo, pacientes):
    with open(nome_arquivo, "w", encoding='utf-8') as f:
         f.write("IDENTIDADE NOME ESPECIE IDADE PESO TRATAMENTOS CADASTRO\n") #AYRAM, DEPOIS MUDA AQUI DO JEITO QUE ESTAVA O CABEÇALHO
         for animal in pacientes:
