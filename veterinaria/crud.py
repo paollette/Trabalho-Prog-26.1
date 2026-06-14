@@ -66,38 +66,4 @@ arq = ["data\\pequeno.txt", "data\\medio.txt", "data\\grande.txt", "data\\gigant
 x = int(input("0 - pequeno.txt\n1 - medio.txt\n2 - grande.txt\n3 - gigante.txt\nler qual arquivo? "))
 carregar(arq[x])
 
-# interface - só fiz pra testar tudo.
-
-print("\nVETERINARIA KOWADA CEIFEIRO COLOMBO DA MORTE\n")
-
-while flag:
-
-    r = int(input("0 - buscar\n1 - adicionar\n2 - remover\n3 - sair\nO QUE DESEJA? "))
-
-    if r in [0, 1, 2, 3]:
-
-        try:
-            if r == 0:
-                id_busca = int(input("Digite um ID para buscar (ex: 1): "))
-                buscar_animais(pacientes, id_busca) # busca funcional
-                input("pressione Enter para continuar...")
-
-
-            elif r == 1:
-                adicionar_animais(pacientes)
-                salvar(arq[x], pacientes)
-                input("pressione Enter para continuar...")
-
-            
-            elif r == 2:
-                id_remocao = int(input("Digite um ID para remover (ex: 1): "))
-                remover_animais(pacientes, id_remocao) 
-                salvar(arq[x], pacientes) #chamei a função para salvar no arquivo
-                input("pressione Enter para continuar...")
-
-            elif r == 3:
-                flag = False
-                continue
-
-        except:
-            r = int(input("0 - buscar\n1 - adicionar\n2 - remover\nO QUE DESEJA? "))
+#movi a interface para o main.py :D
