@@ -42,6 +42,12 @@ def buscar_animais(pacientes, id_procurado): # Dar uma olhada se os nomes das va
     print("Animal não encontrado!")
 
 
+def salvar_animais(nome_arquivo, pacientes):
+    with open(nome_arquivo, "w") as f:
+        for animal in pacientes:
+            linha = f"{animal.identidade};{animal.nome};{animal.especie};{animal.idade};{animal.peso};{animal.tratamentos};{animal.cadastro}\n"
+            f.write(linha)
+
 # DEBUG
 
 flag = True
@@ -70,11 +76,13 @@ while flag:
             elif r == 1:
                 id_add = int(input("Digite um ID para adicionar (ex: 1): "))
                 adicionar_animais(pacientes, id_add) # não adiciona ninguém efetivamente.
+                salvar(arq, pacientes) #chamei a função para salvar no arquivo
                 input("pressione Enter para continuar...")
             
             elif r == 2:
                 id_remocao = int(input("Digite um ID para remover (ex: 1): "))
-                remover_animais(pacientes, id_remocao) # remove sim mas não no arquivo original, eu acho.
+                remover_animais(pacientes, id_remocao) 
+                salvar(arq, pacientes) #chamei a função para salvar no arquivo
                 input("pressione Enter para continuar...")
 
             elif r == 3:
