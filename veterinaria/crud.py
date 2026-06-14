@@ -1,4 +1,5 @@
 from leitura import ler_arquivo
+from paciente import Paciente
 
 # Lista global
 pacientes = []
