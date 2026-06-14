@@ -10,8 +10,17 @@ def carregar(arquivo):
     pacientes = ler_arquivo(arq)
 
 
-def adicionar_animais(pacientes, animal):
-    pacientes.append(animal)
+def adicionar_animais(pacientes):
+    identidade  = input("ID: ")
+    nome        = input("Nome: ")
+    especie     = input("Espécie: ")
+    idade       = input("Idade: ")
+    peso        = input("Peso: ")
+    tratamentos = input("Tratamentos (ex: banho, vacina): ").split(", ")
+    cadastro    = input("Cadastrado? (True/False): ")
+
+    novo_animal = Paciente(identidade, nome, especie, idade, peso, tratamentos, cadastro)
+    pacientes.append(novo_animal)
     print("Animalzinho adicionado!")
     
 
@@ -43,10 +52,10 @@ def buscar_animais(pacientes, id_procurado): # Dar uma olhada se os nomes das va
 
 
 def salvar_animais(nome_arquivo, pacientes):
-    with open(nome_arquivo, "w") as f:
+   with open(nome_arquivo, "w", encoding='utf-8') as f:
+        f.write("IDENTIDADE NOME ESPECIE IDADE PESO TRATAMENTOS CADASTRO\n") #AYRAM, DEPOIS MUDA AQUI DO JEITO QUE ESTAVA O CABEÇALHO
         for animal in pacientes:
-            linha = f"{animal.identidade};{animal.nome};{animal.especie};{animal.idade};{animal.peso};{animal.tratamentos};{animal.cadastro}\n"
-            f.write(linha)
+            f.write(animal.para_linha()) #usei a função para_linha() que você fez, depois verifica se é isso mesmo
 
 # DEBUG
 
@@ -73,16 +82,17 @@ while flag:
                 buscar_animais(pacientes, id_busca) # busca funcional
                 input("pressione Enter para continuar...")
 
+
             elif r == 1:
-                id_add = int(input("Digite um ID para adicionar (ex: 1): "))
-                adicionar_animais(pacientes, id_add) # não adiciona ninguém efetivamente.
-                salvar(arq, pacientes) #chamei a função para salvar no arquivo
+                adicionar_animais(pacientes)
+                salvar(arq[x], pacientes)
                 input("pressione Enter para continuar...")
+
             
             elif r == 2:
                 id_remocao = int(input("Digite um ID para remover (ex: 1): "))
                 remover_animais(pacientes, id_remocao) 
-                salvar(arq, pacientes) #chamei a função para salvar no arquivo
+                salvar(arq[x], pacientes) #chamei a função para salvar no arquivo
                 input("pressione Enter para continuar...")
 
             elif r == 3:
